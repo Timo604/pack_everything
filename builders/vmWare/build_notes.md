@@ -34,3 +34,8 @@
 - Boot wait is tricky - needs to be low enough to send input before defaults are used
   - On a 2019 Thinkpad running Manjaro, 2s was too low and 5 seconds is close to the high bound
 - Despite the `stop ssh` command, still require a large `ssh_timeout` and `ssh_handshake_attempts` so packer doesn't timeout while system is updating
+
+If this error is encountered: Could not determine network mappings from files in path: C:/Program Files (x86)/VMware/VMware Workstation
+The following site explains how to fix
+https://www.vgemba.net/vmware/Packer-Workstation-Error/
+Should only effect Windows 10 PC running VMware Workstation 16.2.1

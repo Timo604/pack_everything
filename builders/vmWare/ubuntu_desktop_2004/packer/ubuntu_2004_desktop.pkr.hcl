@@ -1,11 +1,20 @@
 variable "iso_checksum" {
   type    = string
-  default = "28ccdb56450e643bad03bb7bcf7507ce3d8d90e8bf09e38f6bd9ac298a98eaad"
+  default = "f92f7dca5bb6690e1af0052687ead49376281c7b64fbe4179cc44025965b7d1c"
 }
 
 variable "iso_url" {
   type    = string
-  default = "https://releases.ubuntu.com/20.04/ubuntu-20.04.4-live-server-amd64.iso"
+  default = "https://releases.ubuntu.com/20.04/ubuntu-20.04.4-desktop-amd64.iso"
+}
+
+packer {
+  required_plugins {
+    vmware = {
+      version = ">= 1.0.3"
+      source = "github.com/hashicorp/vmware"
+    }
+  }
 }
 
 source "vmware-iso" "vmware" {
@@ -48,6 +57,6 @@ build {
 
   provisioner "shell" {
     execute_command = "echo 'ubuntu' | {{ .Vars }} sudo -S bash -euxo pipefail '{{ .Path }}'"
-    scripts         = ["scripts/setup_ubuntu2004.sh"]
+    script         = "scripts/setup_ubuntu2004.sh"
   }
 }

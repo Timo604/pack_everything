@@ -29,7 +29,7 @@ source "virtualbox-iso" "vbox" {
   memory                  = 1024
   shutdown_command        = "echo 'ubuntu'|sudo -S shutdown -P now"
   ssh_handshake_attempts  = "100000"
-  ssh_timeout             = "30m"
+  ssh_timeout             = "45m"
   ssh_password            = "ubuntu"
   ssh_username            = "ubuntu"
   vboxmanage              = [["modifyvm", "{{ .Name }}", "--memory", "1024"], ["modifyvm", "{{ .Name }}", "--cpus", "1"], ["modifyvm", "{{.Name}}", "--vram", "64"]]
